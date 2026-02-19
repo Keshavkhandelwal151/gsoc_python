@@ -1,6 +1,6 @@
-Data types in Python are a way to classify data items. They represent the kind of value, which determines what operations can be performed on that data. Since everything is an object in Python programming, Python data types are classes and variables are instances (objects) of these classes.
+## Data types in Python are a way to classify data items. They represent the kind of value, which determines what operations can be performed on that data. Since everything is an object in Python programming, Python data types are classes and variables are instances (objects) of these classes.
 
-The following are standard or built-in data types in Python:
+ The following are standard or built-in data types in Python:
 
     Numeric: int, float, complex
     Sequence Type: string, list, tuple
@@ -9,7 +9,7 @@ The following are standard or built-in data types in Python:
     Set Type: set, frozenset
     Binary Types: bytes, bytearray, memoryview 
 
-Python-Data-Types
+## Python-Data-Types
 DataTypes
 
 Below code assigns variable 'x' different values of few Python data types - int, float, list, tuple and string. Each assignment replaces previous value, making 'x' take on data type and value of most recent assignment.
@@ -89,7 +89,7 @@ e
 l
 d
 
-List Data Type
+# List Data Type
 
 Lists are similar to arrays found in other languages. They are an ordered and mutable collection of items. It is very flexible as items in a list do not need to be of the same type.
 
