@@ -1,0 +1,567 @@
+Python Variables
+comments
+
+In Python, variables are used to store data that can be referenced and manipulated during program execution. A variable is essentially a name that is assigned to a value.
+
+    Unlike Java and many other languages, Python variables do not require explicit declaration of type.
+    The type of the variable is inferred based on the value assigned.
+Python String
+comments
+
+In Python, a string is a sequence of characters written inside quotes. It can include letters, numbers, symbols, and spaces.
+
+    Python does not have a separate character type.
+    A single character is treated as a string of length one.
+    Strings are commonly used for text handling and manipulation.
+
+Creating a String
+
+Strings can be created using either single ('...') or double ("...") quotes. Both behave the same.
+Example: Creating two equivalent strings one with single and other with double quotes.
+
+s1 = 'GfG'  # single quote
+
+s2 = "GfG"  # double quote
+
+print(s1)
+
+print(s2)
+
+
+Output
+
+GfG
+GfG
+
+Multi-line Strings
+
+Use triple quotes ('''...''' ) or ( """...""") for strings that span multiple lines. Newlines are preserved.
+Example: Define and print multi-line strings using both styles.
+
+s = """I am Learning
+
+Python String on GeeksforGeeks"""
+
+print(s)
+
+​
+
+s = '''I'm a 
+
+Geek'''
+
+print(s)
+
+
+Output
+
+I am Learning
+Python String on GeeksforGeeks
+I'm a 
+Geek
+
+Accessing characters in String
+
+Strings are indexed sequences. Positive indices start at 0 from the left; negative indices start at -1 from the right as represented in below image:
+frame_3086
+Indices of string in reverse
+
+Example 1: Access specific characters through positive indexing.
+
+s = "GeeksforGeeks"
+
+print(s[0])   # first character
+
+print(s[4])   # 5th character
+
+
+Output
+
+G
+s
+
+    Note: Accessing an index out of range will cause an IndexError. Only integers are allowed as indices and using a float or other types will result in a TypeError.
+
+Example 2: Read characters from the end using negative indices.
+
+s = "GeeksforGeeks"
+
+print(s[-10])   # 3rd character
+
+print(s[-5])    # 5th character from end
+
+
+Output
+
+k
+G
+
+String Slicing
+
+Slicing is a way to extract a portion of a string by specifying the start and end indexes. The syntax for slicing is string[start:end], where start starting index and end is stopping index (excluded).
+Example: In this example we are slicing through range and reversing a string.
+
+s = "GeeksforGeeks"
+
+print(s[1:4])    # characters from index 1 to 3
+
+print(s[:3])     # from start to index 2
+
+print(s[3:])     # from index 3 to end
+
+print(s[::-1])   # reverse string
+
+
+Output
+
+eek
+Gee
+ksforGeeks
+skeeGrofskeeG
+
+String Iteration
+
+Strings are iterable; you can loop through characters one by one.
+
+Example: Here, it print each character on its own line.
+
+s = "Python"
+
+for char in s:
+
+    print(char)
+
+
+Output
+
+P
+y
+t
+h
+o
+n
+
+Explanation: for loop pulls characters in order and each iteration prints the next character.
+String Immutability
+
+Strings are immutable, which means that they cannot be changed after they are created. If we need to manipulate strings then we can use methods like concatenation, slicing or formatting to create new strings based on original.
+Example: In this example we are changing first character by building a new string.
+
+s = "geeksforGeeks"
+
+s = "G" + s[1:]   # create new string
+
+print(s)
+
+
+Output
+
+GeeksforGeeks
+
+Deleting a String
+
+In Python, it is not possible to delete individual characters from a string since strings are immutable. However, we can delete an entire string variable using the del keyword.
+Example: Here, we are using del keyword to delete a string.
+
+s = "GfG"
+del s
+
+    Note: After deleting the string if we try to access s then it will result in a NameError because variable no longer exists.
+
+Updating a String
+
+As strings are immutable, “updates” create new strings using slicing or methods such as replace().
+Example: This code fix the first letter and replace a word.
+
+s = "hello geeks"
+
+s1 = "H" + s[1:]                   # update first character
+
+s2 = s.replace("geeks", "GeeksforGeeks")  # replace word
+
+print(s1)
+
+print(s2)
+
+
+Output
+
+Hello geeks
+hello GeeksforGeeks
+
+Explanation:
+
+    s1: slice from index 1 onward and prepend "H".
+    s2: replace("geeks", "GeeksforGeeks") returns a new string.
+
+Common String Methods
+
+Python provides various built-in methods to manipulate strings. Below are some of the most useful methods:
+
+1. len(): The len() function returns the total number of characters in a string (including spaces and punctuation).
+Example:
+
+s = "GeeksforGeeks"
+
+print(len(s))
+
+
+Output
+
+13
+
+2. upper() and lower(): upper() method converts all characters to uppercase whereas, lower() method converts all characters to lowercase.
+Example:
+
+s = "Hello World"
+
+print(s.upper())
+
+print(s.lower())
+
+
+Output
+
+HELLO WORLD
+hello world
+
+3. strip() and replace(): strip() removes leading and trailing whitespace from the string and replace() replaces all occurrences of a specified substring with another.
+Example:
+
+s = "   Gfg   "
+
+print(s.strip())    
+
+​
+
+s = "Python is fun"
+
+print(s.replace("fun", "awesome"))
+
+
+Output
+
+Gfg
+Python is awesome
+
+    To learn more about string methods, please refer to Python String Methods.
+
+Concatenating and Repeating Strings
+
+We can concatenate strings using + operator and repeat them using * operator.
+
+1. Strings can be combined by using + operator.
+Example: Join two words with a space.
+
+s1 = "Hello"
+
+s2 = "World"
+
+print(s1 + " " + s2)
+
+
+Output
+
+Hello World
+
+2. We can repeat a string multiple times using * operator.
+Example: Repeat a greeting three times.
+
+s = "Hello "
+
+print(s * 3)
+
+
+Output
+
+Hello Hello Hello 
+
+Formatting Strings
+
+Python provides several ways to include variables inside strings.
+1. Using f-strings
+
+The simplest and most preferred way to format strings is by using f-strings.
+Example: Embed variables directly using {} placeholders.
+
+name = "Alice"
+
+age = 22
+
+print(f"Name: {name}, Age: {age}")
+
+
+Output
+
+Name: Alice, Age: 22
+
+2. Using format()
+
+Another way to format strings is by using format() method.
+Example: Use placeholders {} and pass values positionally.
+
+s = "My name is {} and I am {} years old.".format("Alice", 22)
+
+print(s)
+
+
+Output
+
+My name is Alice and I am 22 years old.
+
+String Membership Testing
+
+in keyword checks if a particular substring is present in a string.
+Example: Here, we are testing for the presence of substrings.
+
+s = "GeeksforGeeks"
+
+print("Geeks" in s)
+
+print("GfG" in s)
+
+
+Output
+
+True
+False
+
+If you are facing any issue on this page. Please let us know.
+x = 5
+
+name = "Samantha"  
+
+print(x)
+
+print(name)
+
+
+Output
+
+5
+Samantha
+
+Rules for Naming Variables
+
+To use variables effectively, we must follow Python’s naming rules:
+
+    Variable names can only contain letters, digits and underscores (_).
+    A variable name cannot start with a digit.
+    Variable names are case-sensitive like myVar and myvar are different.
+    Avoid using Python keywords like if, else, for as variable names.
+
+Below listed variable names are valid:
+
+age = 21
+_colour = "lilac"
+total_score = 90
+
+Below listed variables names are invalid:
+
+1name = "Error"  # Starts with a digit
+class = 10       # 'class' is a reserved keyword
+user-name = "Doe"  # Contains a hyphen
+
+Assigning Values to Variables
+
+Basic Assignment: Variables in Python are assigned values using the = operator.
+
+x = 5
+y = 3.14
+z = "Hi"
+
+Dynamic Typing: Python variables are dynamically typed, meaning the same variable can hold different types of values during execution.
+
+x = 10
+x = "Now a string"
+
+Multiple Assignments
+
+Assigning Same Value: Python allows assigning the same value to multiple variables in a single line, which can be useful for initializing variables with the same value.
+
+a = b = c = 100
+
+print(a, b, c)
+
+
+Output
+
+100 100 100
+
+Assigning Different Values: We can assign different values to multiple variables simultaneously, making the code concise and easier to read.
+
+x, y, z = 1, 2.5, "Python"
+
+print(x, y, z)
+
+
+Output
+
+1 2.5 Python
+
+Type Casting a Variable
+
+Type casting refers to the process of converting the value of one data type into another. Python provides several built-in functions to facilitate casting, including int(), float() and str() among others. Basic casting functions are:
+
+    int(): Converts compatible values to an integer.
+    float(): Transforms values into floating-point numbers.
+    str(): Converts any data type into a string.
+
+s = "10"  
+
+n = int(s)
+
+​
+
+cnt = 5
+
+f = float(cnt) 
+
+​
+
+age = 25
+
+s2 = str(age)  
+
+​
+
+print(n)  
+
+print(f)  
+
+print(s2)
+
+
+Output
+
+10
+5.0
+25
+
+Type of Variable
+
+In Python, we can determine the type of a variable using the type() function. This built-in function returns the type of the object passed to it.
+
+n = 42
+
+f = 3.14
+
+s = "Hello, World!"
+
+li = [1, 2, 3]
+
+d = {'key': 'value'}
+
+bool = True
+
+​
+
+print(type(n))   
+
+print(type(f)) 
+
+print(type(s))   
+
+print(type(li))     
+
+print(type(d))     
+
+print(type(bool))
+
+
+Output
+
+<class 'int'>
+<class 'float'>
+<class 'str'>
+<class 'list'>
+<class 'dict'>
+<class 'bool'>
+
+Concept of Object Reference
+
+Let us assign a variable x to value 5.
+
+    x = 5
+
+When x = 5 is executed, Python creates an object to represent the value 5 and makes x reference this object.
+1
+object reference
+
+Now, let's assign another variable y to the variable x.
+
+    y = x
+
+This statement creates y and references the same object as x, not x itself. This is called a Shared Reference, where multiple variables reference the same object.
+2
+shared reference
+
+Now, if we write
+
+    x = 'Geeks'
+
+Python creates a new object for the value "Geeks" and makes x reference this new object.
+3
+shared reference example
+
+The variable y remains unchanged, still referencing the original object 5. Now, If we assign a new value to y:
+
+    y = "Computer"
+
+4
+shared reference example
+
+    Python creates yet another object for "Computer" and updates y to reference it.
+    The original object 5 no longer has any references and becomes eligible for garbage collection.
+    Python variables hold references to objects, not the actual objects themselves.
+    Reassigning a variable does not affect other variables referencing the same object unless explicitly updated.
+
+Deleting a Variable
+
+We can remove a variable from the namespace using the del keyword. This deletes the variable and frees up the memory it was using.
+
+x = 10
+del x
+print(x) 
+
+Output
+
+    ERROR!
+    Traceback (most recent call last):
+      File "<main.py>", line 3, in <module>
+    NameError: name 'x' is not defined
+
+Explanation:
+
+    del x removes the variable x from memory.
+    After deletion, trying to access the variable x results in a NameError indicating that the variable no longer exists.
+
+Practical Examples
+
+1. Swapping Two Variables: Using multiple assignments, we can swap the values of two variables without needing a temporary variable.
+
+a, b = 5, 10
+
+a, b = b, a
+
+print(a, b)
+
+
+Output
+
+10 5
+
+2. Counting Characters in a String: Assign the results of multiple operations on a string to variables in one line.
+
+word = "Python"
+
+length = len(word)
+
+print("Length of the word:", length)
+
+
+Output
+
+Length of the word: 6
+
+If you are facing any issue on this page. Please let us know.
